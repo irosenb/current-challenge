@@ -15,7 +15,7 @@ router.post('/', function(req, res, next) {
 router.get('/', function(req, res, next) {
   console.log(req);
   console.log(req.params.id);
-  Visit.search(req.body.name, req.body.userId, req.body.id, function(results, err) {
+  Visit.search(req.body.searchString, req.body.userId, req.body.id, function(results, err) {
     if (err) {
       res.status(400).send("error");
     } else {

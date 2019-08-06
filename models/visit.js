@@ -32,11 +32,9 @@ Visit.search = function(name, userId, id,  callback) {
       values: [id]
     }
   } else if (name !== null && userId !== null) {
-    console.log(name)
-    console.log("User ID: " + userId)
     query = {
-      text: "SELECT * FROM Visits WHERE userId = $1 AND name LIKE $2 ORDER BY created_at DESC LIMIT 5",
-      values: [userId, '%' + name + '%']
+      text: "SELECT * FROM Visits WHERE userId = $1 AND name % $2 ORDER BY created_at DESC LIMIT 5",
+      values: [userId, name]
     }
   } else {
     callback(null, new Error("Please provide a user id and name, or an id"))
