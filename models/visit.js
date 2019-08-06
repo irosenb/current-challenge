@@ -44,6 +44,7 @@ Visit.search = function(name, userId, id,  callback) {
       console.log(err);
       callback(null, err);
     } else {
+      console.log(results);
       callback(results.rows, null);
     }
     client.end();
