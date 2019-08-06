@@ -26,6 +26,7 @@ Visit.search = function(name, userId, id,  callback) {
   var query;
   var params;
   if (id != null) {
+    console.log("id provided")
     query = {
       text: "SELECT * FROM Visits WHERE id = $1",
       values: [id]
